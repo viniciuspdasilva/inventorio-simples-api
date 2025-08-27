@@ -9,7 +9,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     estoque = db.Column(db.Integer, nullable=False)
     is_critical = db.Column(db.Boolean, nullable=False, default=False)
-
+    movimentacoes = db.relationship('Movimentacoes', backref='produto', lazy='joined')
 
     def __init__(self, name, description, price, estoque, is_critical = False):
         self.name = name
