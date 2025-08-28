@@ -4,6 +4,8 @@ from .config import Config
 from .database import init_app, db
 from .routes.product_resource import ns as prod_ns
 from .routes.movimentacao_route import ns as mov_ns
+from .routes.fornecedor_route import ns as forn_ns
+from .routes.pedido_route import ns as ped_ns
 
 def create_app():
     app = Flask(__name__)
@@ -19,5 +21,8 @@ def create_app():
     )
     api.add_namespace(prod_ns, path='/products')
     api.add_namespace(mov_ns, path='/movements')
+    api.add_namespace(mov_ns, path='/movements/<id>')
+    api.add_namespace(forn_ns, path='/fornecedores')
+    api.add_namespace(ped_ns, path='/pedidos')
 
     return app

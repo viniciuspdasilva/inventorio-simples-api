@@ -5,7 +5,7 @@ from src.service.movimentacao_service import MovimentacaoService
 
 ns = Namespace('movimentacoes', description='Histórico de movimentações')
 
-mov_model = ns.model({
+mov_model = ns.model('Movimentacoes', {
     'id': fields.Integer(readonly=True, description='Id da movimentacao'),
     'product_id': fields.Integer(required=True, description='Id do produto a ser movimentado'),
     'tipo': fields.String(required=True, description='Tipo da movimentação: entrada | saida'),
