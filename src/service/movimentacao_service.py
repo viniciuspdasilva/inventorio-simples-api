@@ -10,7 +10,7 @@ class MovimentacaoService:
 
     @staticmethod
     def movimentacao(data):
-        p = ProductDAO.get_by_id(data['product_id'])
+        p = ProductDAO.get_by_id(data['produto_id'])
         if not p:
             raise ValueError('Product not found')
         if data['tipo'] == 'entrada':
@@ -22,7 +22,7 @@ class MovimentacaoService:
         else:
             raise ValueError('Tipo invalido')
         mov = MovimentacoesDAO.create(
-            product_id=data['product_id'],
+            product_id=data['produto_id'],
             tipo=data['tipo'],
             quantidade=data['quantidade'],
             data=data['data']

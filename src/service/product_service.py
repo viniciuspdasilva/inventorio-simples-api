@@ -1,6 +1,6 @@
 from src.enum.status_pedido import PedidoStatus
 from src.persistence.dao.product_dao import ProductDAO
-from src.persistence.models.product import Product
+from src.persistence.models.produto import Produto
 from src.service.pedido_service import PedidoService
 import uuid
 
@@ -42,11 +42,11 @@ class ProductService:
         return novo_pedido
 
     @staticmethod
-    def __logica_verificar_estoque_e_repor(produto: Product):
+    def __logica_verificar_estoque_e_repor(produto: Produto):
         if produto.estoque < 0 and produto.fornecedores:
             fornecedor = produto.fornecedores[0]
             pedido = PedidoService.criar_pedido({
-                "nome": produto.nome + "-" + fornecedor.nome + "-" + uuid.uuid4(),
+                "descricao": produto.nome + "-" + fornecedor.descricao + "-" + uuid.uuid4(),
                 "fornecedor_id": fornecedor.id,
                 "produtos_id": produto.id,
                 "quantidade": produto.estoque_minimo or 5,

@@ -7,7 +7,7 @@ ns = Namespace('fornecedores', description='Fornecedores de pedido')
 fornecedor_model = ns.model('Fornecedor', {
     'id': fields.Integer(readonly=True),
     'cnpj': fields.String(readonly=True),
-    'nome': fields.String(required=True),
+    'descricao': fields.String(required=True),
     'email': fields.String(required=True),
     'telefone': fields.String(),
 })

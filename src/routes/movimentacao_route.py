@@ -7,7 +7,7 @@ ns = Namespace('movimentacoes', description='Histórico de movimentações')
 
 mov_model = ns.model('Movimentacoes', {
     'id': fields.Integer(readonly=True, description='Id da movimentacao'),
-    'product_id': fields.Integer(required=True, description='Id do produto a ser movimentado'),
+    'produto_id': fields.Integer(required=True, description='Id do produto a ser movimentado'),
     'tipo': fields.String(required=True, description='Tipo da movimentação: entrada | saida'),
     'quantidade': fields.Integer(required=True, description='Quantidade de itens a ser movimentado'),
     'data': fields.DateTime(readonly=True, description='Data da movimentacao'),

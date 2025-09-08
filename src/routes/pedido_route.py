@@ -8,7 +8,7 @@ ns = Namespace('pedidos_compra', description='Pedidos de compra')
 
 pedido_model = ns.model('Pedidos', {
     'id':            fields.Integer(readonly=True),
-    'nome':          fields.String(readonly=True),
+    'descricao':          fields.String(readonly=True),
     'produto_id':    fields.Integer(required=True),
     'fornecedor_id': fields.Integer(required=True),
     'quantidade':    fields.Integer(required=True),

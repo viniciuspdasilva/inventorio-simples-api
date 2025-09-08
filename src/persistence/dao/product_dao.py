@@ -1,22 +1,22 @@
-from src.persistence.models.product import Product
+from src.persistence.models.produto import Produto
 from src.database import db
 
 class ProductDAO:
     @staticmethod
     def get_all():
-        return Product.query.all()
+        return Produto.query.all()
     @staticmethod
     def get_by_id(pid):
-        return Product.query.get(pid)
+        return Produto.query.get(pid)
     @staticmethod
     def add(name, description, price, estoque=0):
-        product = Product(name, description, price, estoque)
+        product = Produto(name, description, price, estoque)
         db.session.add(product)
         db.session.commit()
         return product
     @staticmethod
     def delete(pid):
-        product = Product.query.get(pid)
+        product = Produto.query.get(pid)
         if product:
             db.session.delete(product)
             db.session.commit()
